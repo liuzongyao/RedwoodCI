@@ -1,5 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER Liuzongyao <zyliu@alauda.io>
+RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get update
 RUN apt-get install net-tools -y
 RUN apt-get install wget -y

@@ -1,0 +1,12 @@
+{"level":"info","message":"Agent Started.","timestamp":"2018-10-30T09:05:00.675Z"}
+{"command":"cleanup","executionID":"582ba6dc6ccd64fd74b5bfa1","level":"info","message":"","timestamp":"2018-10-30T09:05:13.520Z"}
+{"level":"info","message":"cleaning up","timestamp":"2018-10-30T09:05:13.521Z"}
+{"level":"info","message":"/Users/zongyao/redwoodCI/RedwoodHQ/agent/executionfiles/582ba6dc6ccd64fd74b5bfa1/bin/flag.sh","timestamp":"2018-10-30T09:05:13.537Z"}
+{"level":"info","message":"/Users/zongyao/redwoodCI/RedwoodHQ/agent/executionfiles/582ba6dc6ccd64fd74b5bfa1/bin/geckodriverlinux","timestamp":"2018-10-30T09:05:13.649Z"}
+{"level":"info","message":"/Users/zongyao/redwoodCI/RedwoodHQ/agent/executionfiles/582ba6dc6ccd64fd74b5bfa1/bin/geckodrivermac","timestamp":"2018-10-30T09:05:13.737Z"}
+{"level":"info","message":"/Users/zongyao/redwoodCI/RedwoodHQ/agent/executionfiles/582ba6dc6ccd64fd74b5bfa1/launcher/RedwoodHQLauncher.jar","timestamp":"2018-10-30T09:05:13.752Z"}
+{"level":"info","message":"/Users/zongyao/redwoodCI/RedwoodHQ/agent/executionfiles/582ba6dc6ccd64fd74b5bfa1/lib/groovy-all-2.1.6.jar","timestamp":"2018-10-30T09:05:13.819Z"}
+{"level":"info","message":"/Users/zongyao/redwoodCI/RedwoodHQ/agent/executionfiles/582ba6dc6ccd64fd74b5bfa1/lib/pythonSources.zip","timestamp":"2018-10-30T09:05:13.831Z"}
+{"command":"start launcher","executionID":"582ba6dc6ccd64fd74b5bfa1","threadID":0,"level":"info","message":"","timestamp":"2018-10-30T09:05:13.851Z"}
+{"command":"run action","executionID":"582ba6dc6ccd64fd74b5bfa1","testcaseID":"5bd817dc49fc2fc203c5e272","variables":{"Browser":"Chrome"},"name":"print","executionflow":"Record Error Stop Test Case","ignoreScreenshots":false,"allScreenshots":false,"returnValueName":"","testcaseName":"print","script":"actions.PythonAction.PythonAction.run","scriptLang":"Python","resultID":"5bd81ec93b674dbb07ab3327","parameters":[],"threadID":0,"level":"info","message":"","timestamp":"2018-10-30T09:05:13.854Z"}
+{"level":"info","message":"running action","timestamp":"2018-10-30T09:05:13.854Z"}

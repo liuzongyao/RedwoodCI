@@ -1,12 +1,13 @@
-node_modules
-vendor
+.project
+.settings
+.logs
 .idea
+.vscode
 npm-debug.log
 nodegit
 node-gitteh
 groovy
 Git
-Java
 compiled
 ant
 log

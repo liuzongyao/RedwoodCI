@@ -1,2 +1,12 @@
 {"level":"error","message":"filesInConflict stderr: /Users/zongyao/dockerfile/RedwoodHQ/vendor/Git/bin/git: /Users/zongyao/dockerfile/RedwoodHQ/vendor/Git/bin/git: cannot execute binary file\n","timestamp":"2018-08-07T05:39:21.642Z"}
 {"level":"error","message":"filesNotPushed stderr: /Users/zongyao/dockerfile/RedwoodHQ/vendor/Git/bin/git: /Users/zongyao/dockerfile/RedwoodHQ/vendor/Git/bin/git: cannot execute binary file\n","timestamp":"2018-08-07T05:39:21.650Z"}
+{"level":"info","message":"/Users/zongyao/redwoodCI/RedwoodHQ/vendor/ant/bin/","timestamp":"2018-10-30T08:58:07.260Z"}
+{"level":"info","message":"/Users/zongyao/redwoodCI/RedwoodHQ/public/automationscripts/Sample/admin","timestamp":"2018-10-30T08:58:07.261Z"}
+{"level":"info","message":"/Users/zongyao/redwoodCI/RedwoodHQ/vendor/ant/bin/","timestamp":"2018-10-30T09:05:13.364Z"}
+{"level":"info","message":"/Users/zongyao/redwoodCI/RedwoodHQ/public/automationscripts/Sample/admin","timestamp":"2018-10-30T09:05:13.365Z"}
+{"level":"info","message":"staring at:0","timestamp":"2018-10-30T09:05:13.497Z"}
+{"level":"info","message":"","timestamp":"2018-10-30T09:05:13.511Z"}
+{"command":"cleanup","executionID":"582ba6dc6ccd64fd74b5bfa1","level":"info","message":"","timestamp":"2018-10-30T09:05:13.513Z"}
+{"command":"start launcher","executionID":"582ba6dc6ccd64fd74b5bfa1","threadID":0,"level":"info","message":"","timestamp":"2018-10-30T09:05:13.849Z"}
+{"command":"run action","executionID":"582ba6dc6ccd64fd74b5bfa1","testcaseID":"5bd817dc49fc2fc203c5e272","variables":{"Browser":"Chrome"},"name":"print","executionflow":"Record Error Stop Test Case","ignoreScreenshots":false,"allScreenshots":false,"returnValueName":"","testcaseName":"print","script":"actions.PythonAction.PythonAction.run","scriptLang":"Python","resultID":"5bd81ec93b674dbb07ab3327","parameters":[],"threadID":0,"level":"info","message":"","timestamp":"2018-10-30T09:05:13.852Z"}
+{"level":"error","message":"sendAgentCommand problem with request: socket hang up ","timestamp":"2018-10-30T09:07:04.443Z"}

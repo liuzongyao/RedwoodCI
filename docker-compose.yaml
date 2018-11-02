@@ -1,0 +1,34 @@
+version: "2.1"
+services:
+  mongodb:
+    image: index.alauda.cn/alaudaorg/qaimages:mongodbv2
+    ports:
+      - 27017:27017
+    networks:
+      - cloud
+    restart:
+      always
+    tty: true
+  redwoodhq:
+    image: index.alauda.cn/alaudaorg/qaimages:redwoodv1.2.5
+    ports:
+      - 3000:3000
+    links:
+      - mongodb
+    tty: true
+    privileged: true
+    depends_on:
+      - mongodb
+    volumes:
+      - /home/logs:/RedwoodHQ/logs
+    environment:
+      - MONGO_PORT=27017
+      - MONGO_HOST=10.0.128.85
+    networks:
+      - cloud
+    restart:
+      always
+
+networks:
+  cloud:
+    driver: bridge
