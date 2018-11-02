@@ -4,7 +4,6 @@ import sys
 import importlib
 import traceback
 import time
-import pythonLauncher
 import os
 import uuid
 import types
@@ -46,14 +45,19 @@ variables = {}
 currentAction = {}
 
 def runAction(action):
+    global variables
+    global globalValues
+    global currentAction
+    global returnValues
+
     action["result"] = "Passed"
     try:
 
         if "testcaseName" in action:
-            pythonLauncher.globalValues["testcaseName"] = action["testcaseName"]
+            globalValues["testcaseName"] = action["testcaseName"]
         if "variables" in action:
             for key, value in action["variables"].iteritems():
-                pythonLauncher.variables[key] = value
+                variables[key] = value
                 os.environ[key] = value
         if "script" in action:
             if action["script"] == "" or action["script"] is None:
@@ -86,20 +90,24 @@ def runAction(action):
         methodValue = getattr(classValue, methodName)
         # with open("/Users/lijunlei/command.json","w") as fp:
         #     fp.write(json.dumps(action))
+        # sys.stdout.write("+++before start action returnValue +++\n")
+        # sys.stdout.flush()
+        # sys.stdout.write("("+str(returnValues)+")\n")
+        # sys.stdout.flush()
         params = {}
         for param in action["parameters"]:
             paramValue = param["value"]
             paramKey = param["name"]
             if paramValue != "<NULL>":
-                if isinstance(paramValue,(types.StringType,types.UnicodeType)) and paramValue.startswith("${") and paramValue.endswith("}"):
-                    var = paramValue[2:-1]
-                    if var in returnValues:
-                        params[paramKey] = returnValues[var]
-                    else:
-                        params[paramKey] = paramValue
-                elif isinstance(paramValue,(types.StringType,types.UnicodeType)):
-                    if isnumeric(paramValue):
-                        params[paramKey] = int(paramValue)
+                if isinstance(paramValue,(types.StringType,types.UnicodeType)):
+                    if paramValue.startswith("${") and paramValue.endswith("}"):
+                        var = paramValue[2:-1]
+                        if var in returnValues:
+                            params[paramKey] = returnValues[var]
+                        else:
+                            params[paramKey] = paramValue
+                    elif isnumeric(paramValue):
+                        params[paramKey] = eval(paramValue)
                     elif re.match(r'^\{.{1,}\}$',paramValue):
                         try:
                             params[paramKey] = eval(paramValue)
@@ -128,7 +136,7 @@ def runAction(action):
         sys.stdout.flush()
         if returnValue is not None:
             if "returnValueName" in action:
-                pythonLauncher.returnValues[action["returnValueName"]] = returnValue
+                returnValues[action["returnValueName"]] = returnValue
             if isinstance(returnValue, list):
                 allStrings = True
                 for value in returnValue:
@@ -138,8 +146,13 @@ def runAction(action):
                     action["returnValue"] = returnValue
             elif returnValue.__class__.__name__ == "str" or returnValue.__class__.__name__ == "unicode":
                 action["returnValue"] = returnValue
+        # sys.stdout.write("+++after run action returnValue +++\n")
+        # sys.stdout.flush()
+        # sys.stdout.write("["+str(returnValues)+"]\n")
+        # sys.stdout.flush()
         if action["allScreenshots"] is True:
             TakeScreenshot(action)
+
     except Exception, e:
         sys.stdout.flush()
         action["result"] = "Failed"

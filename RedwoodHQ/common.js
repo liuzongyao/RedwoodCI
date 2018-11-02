@@ -75,10 +75,6 @@ exports.initLogger = function(fileName){
     }
     this.logger = new (winston.Logger)({
         transports:winTransports
-        //transports: [
-        //    new (winston.transports.Console)(),
-        //    new (winston.transports.File)({ filename: 'logs/'+fileName+'.log',maxsize:10485760,maxFiles:10,timestamp:true })
-        //]
     });
     this.logger.handleExceptions(new winston.transports.File({ filename: 'logs/'+fileName+'_errors.log' }));
     this.logger.exitOnError = false;
@@ -97,8 +93,8 @@ exports.initDB = function(port,callback){
         var dbServer = new Server(mongohost, parseInt(mongoport), {poolSize :50,auto_reconnect: true,safe:true});
         db = new Db('automationframework', dbServer);
         db.open(function(err, db) {
-            db.authenticate('Redwood_user123', 'Redwood_password123', function(err, result) {
-                test.equal(true, result);});
+             db.authenticate('Redwood_user123', 'Redwood_password123', function(err, result) {
+                 test.equal(true, result);});
             if(!err) {
                 if (callback) callback();
                 console.log("DB connected");
